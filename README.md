@@ -12,10 +12,11 @@ $ npm install --save optimizer-coffee
 
 ## Usage
 
-In your dependencies list in `optimizer.json`, just go ahead and all your source .coffee files
+In your dependencies list in `optimizer.json`, just go ahead and list all your source .coffee files
 ```js
 [
     "main.coffee",
+    "about.coffee"
     ...
 ]
 ```
