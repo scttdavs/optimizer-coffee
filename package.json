@@ -1,0 +1,37 @@
+{
+    "name": "optimizer-coffee",
+    "description": "RaptorJS Optimizer plugin to compile Coffee Script into javascript",
+    "main": "./optimizer-coffee-plugin.js",
+    "scripts": {
+        "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
+    },
+    "keywords": [
+        "optimizer",
+        "optimizer-plugin",
+        "coffee-script"
+    ],
+    "author": "Scott Davis <sc.ttdav.s@gmail.com>",
+    "contributors": [
+        "Scott Davis <sc.ttdav.s@gmail.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/scttdavs/optimizer-coffee.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "raptor-logging": "^1.0.1",
+        "raptor-util": "^1.0.0",
+        "coffee-script": "~1.9.1"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "devDependencies": {
+        "chai": "^1.9.1",
+        "jshint": "^2.5.5",
+        "mocha": "^1.21.4",
+        "optimizer": "^1.0.11"
+    },
+    "version": "0.0.1"
+}
