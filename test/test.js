@@ -46,4 +46,45 @@ describe('optimizer-coffee' , function() {
             });
     });
 
+    it.only('should compile a simple coffee file as a CommonJS module', function(done) {
+        var pageOptimizer = optimizer.create({
+                fileWriter: {
+                    fingerprintsEnabled: false,
+                    outputDir: nodePath.join(__dirname, 'static')
+                },
+                bundlingEnabled: true,
+                plugins: [
+                    {
+                        plugin: 'optimizer-require',
+                        config: {
+                            includeClient: false
+                        }
+                    },
+                    {
+                        plugin: coffeePlugin,
+                        config: {
+
+                        }
+                    }
+                ]
+            });
+
+        pageOptimizer.optimizePage({
+                name: 'testPage',
+                dependencies: [
+                    'require: ' + nodePath.join(__dirname, 'fixtures/simple.coffee')
+                ]
+            },
+            function(err, optimizedPage) {
+                if (err) {
+                    return done(err);
+                }
+
+                var output = fs.readFileSync(nodePath.join(__dirname, 'static/testPage.js'), 'utf8');
+                expect(output).to.contain('require');
+                expect(output).to.contain('(function() {\n  var test;\n\n  test = 5;\n\n}).call(this);\n');
+                done();
+            });
+    });
+
 });
